@@ -4,23 +4,23 @@ class PinsController < ApplicationController
     @pins = Pin.all
   end
 
-  # # new
-  # def new
-  #   @artist = Artist.find(params[:artist_id])
-  #   @song = Song.new
-  # end
-  #
-  # # create
-  # def create
-  #   @artist = Artist.find(params[:artist_id])
-  #   @song = @artist.songs.new(song_params)
-  #   if @song.save
-  #     flash[:notice] = "#{@song.title} was successfully created."
-  #     redirect_to @song
-  #   else
-  #     render :new
-  #   end
-  # end
+  # new
+  def new
+    @board = Board.find(params[:board_id])
+    @pin = Pin.new
+  end
+
+  # create
+  def create
+    @board = Board.find(params[:board_id])
+    @pin = current_user.pins.create!(pin_params.merge(board: @board))
+    if @pin.save
+      flash[:notice] = "#{@pin.title} was successfully created."
+      redirect_to @board
+    else
+      render :new
+    end
+  end
   #
   # #show
   # def show
@@ -67,8 +67,8 @@ class PinsController < ApplicationController
   #   redirect_to @song.artist
   # end
   #
-  # private
-  # def song_params
-  #   params.require(:song).permit(:title, :album, :preview_url, :artist_id)
-  # end
+  private
+  def pin_params
+    params.require(:pin).permit(:title, :image_url)
+  end
 end
