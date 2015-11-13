@@ -28,23 +28,23 @@ class PinsController < ApplicationController
   #   @artist = @song.artist
   # end
   #
-  # # edit
-  # def edit
-  #   @song = Song.find(params[:id])
-  #   @artist = @song.artist
-  # end
-  #
-  # # update
-  # def update
-  #   @song = Song.find(params[:id])
-  #   @artist = @song.artist
-  #   if @song.update(song_params)
-  #     flash[:notice] = "#{@song.title} was successfully updated."
-  #     redirect_to @song
-  #   else
-  #     render :edit
-  #   end
-  # end
+  # edit
+  def edit
+    @pin = Pin.find(params[:id])
+    @board = Board.find(params[:board_id])
+  end
+
+  # update
+  def update
+    @pin = Pin.find(params[:id])
+    @board = Board.find(params[:board_id])
+    if @pin.update(pin_params)
+      flash[:notice] = "#{@pin.title} was successfully updated."
+      redirect_to @board
+    else
+      render :edit
+    end
+  end
   #
   # # destroy
   # def destroy

@@ -1,10 +1,12 @@
 <h2><%= @board.title %></h2>
 
+<h2><%= link_to "Edit Board", edit_board_path(@board) %></h2>
+
 <h2><%= link_to "Create New Pin", new_board_pin_path(@board) %></h2>
 
 <div class="board-pins">
   <% @board.pins.reverse.each do |pin| %>
-    <p> <%= pin.title %></p>
+    <p> <%= pin.title %> <%= link_to "Edit Pin", edit_board_pin_path(@board, pin) %></p>
     <%= image_tag pin.image_url, alt: pin.title %>
   <% end %>
 </div>

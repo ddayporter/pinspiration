@@ -25,22 +25,22 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
-  # # edit
-  # def edit
-  #   @artist = Artist.find(params[:id])
-  # end
-  #
-  #
-  # # update
-  # def update
-  #   @artist = Artist.find(params[:id])
-  #   if @artist.update(artist_params)
-  #     flash[:notice] = "#{@artist.name} was successfully updated."
-  #     redirect_to @artist
-  #   else
-  #     render :edit
-  #   end
-  # end
+  # edit
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+
+  # update
+  def update
+    @board = Board.find(params[:id])
+    if @board.update(board_params)
+      flash[:notice] = "#{@board.title} was successfully updated."
+      redirect_to @board
+    else
+      render :edit
+    end
+  end
   #
   # # destroy
   # def destroy
