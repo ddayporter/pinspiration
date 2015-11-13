@@ -41,14 +41,14 @@ class BoardsController < ApplicationController
       render :edit
     end
   end
-  #
-  # # destroy
-  # def destroy
-  #   @artist = Artist.find(params[:id])
-  #   @artist.destroy
-  #   redirect_to artists_path
-  # end
-  #
+
+  # destroy
+  def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to root_path
+  end
+
   private
   def board_params
     params.require(:board).permit(:title)

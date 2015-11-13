@@ -45,13 +45,14 @@ class PinsController < ApplicationController
       render :edit
     end
   end
-  #
-  # # destroy
-  # def destroy
-  #   @song = Song.find(params[:id])
-  #   @song.destroy
-  #   redirect_to @song.artist
-  # end
+
+  # destroy
+  def destroy
+    @board = Board.find(params[:board_id])
+    @pin = Pin.find(params[:id])
+    @pin.destroy
+    redirect_to @board
+  end
   #
   # # add favorite
   # def add_favorite

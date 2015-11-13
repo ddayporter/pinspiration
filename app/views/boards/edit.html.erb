@@ -1,3 +1,5 @@
 <h1>Edit The <%= @board.title %> Board</h1>
 
 <%= render 'form' %>
+
+<%= link_to "Delete Board", board_path(@board), method: :delete, class: "delete" %>
