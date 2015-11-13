@@ -14,6 +14,10 @@ $grey: #9EA3B0;
           border-radius: $radius;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Main Styles */
 
 body {
@@ -25,12 +29,13 @@ body {
 
 nav {
   display: inline-block;
-  width: 50%;
+  float: right;
+  width: 25%;
 
   h3 {
     display: inline-block;
     background-color: $button-background-color;
-    padding: 2%;
+    padding: 4%;
     @include border-radius(10px);
 
     a {
@@ -48,6 +53,9 @@ header {
   padding-right: 30%;
 }
 
+h2 {
+  text-align: center;
+}
 
 /* Devise Form */
 .devise-form {
@@ -82,6 +90,38 @@ header {
     border: none;
     padding: 3%;
     margin: 3%;
+    color: white;
+  }
+}
+
+/* pin styles */
+
+img {
+  width: 95%;
+  max-height: 200px;
+  margin: 0 auto;
+}
+
+.board-pins, .board-preview {
+  display: inline-block;
+  width: 30%;
+  min-height: 300px;
+  background-color: $grey;
+  color: white;
+  margin: 1%;
+  @include border-radius(10px);
+
+  p {
+    padding-left: 3%;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  a.board-title {
     color: white;
   }
 }

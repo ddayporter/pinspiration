@@ -1,9 +1,16 @@
 <h2>Boards</h2>
 
-<%= link_to "Create New Board", new_board_path %>
+<p>
+  <%= link_to "Create New Board", new_board_path %>
+</p>
 
-<ul>
+
   <% @boards.each do |board| %>
-  <li><%= link_to board.title, board_path(board) %></li>
+    <div class="board-preview">
+      <p>
+        <%= link_to board.title, board_path(board), class: "board-title" %> <%= link_to "Edit Board", edit_board_path(board) %>
+      </p>
+      <%= image_tag board.pins.last.image_url, alt: board.pins.last.title %>
+    </div>
+
   <% end %>
-</ul>
