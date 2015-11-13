@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Signika|Droid+Sans);
+
+$primary-color: #385F71;
+$secondary-color: #C08497;
+$button-background-color: #0D1F2D;
+$button-link-color: #B0D0D3;
+$text-color: #222;
+$grey: #9EA3B0;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+/* Main Styles */
+
+body {
+  font-family: 'Droid Sans', sans-serif;
+  color: $text-color;
+  padding: 2%;
+  background-image: url('pink_rice.png');
+}
+
+nav {
+  display: inline-block;
+  width: 50%;
+
+  h3 {
+    display: inline-block;
+    background-color: $button-background-color;
+    padding: 2%;
+    @include border-radius(10px);
+
+    a {
+      color: $button-link-color;
+      text-decoration: none;
+    }
+  }
+
+}
+
+header {
+  display: inline-block;
+  font-family: 'Signika', sans-serif;
+  color: $primary-color;
+  padding-right: 30%;
+}
+
+
+/* Devise Form */
+.devise-form {
+  // text-align: center;
+  background-color: $primary-color;
+  color: white;
+  width: 30%;
+  margin: 0 auto;
+  padding: 2%;
+  @include border-radius(10px);
+
+  a {
+    text-decoration: none;
+    color: $grey;
+  }
+
+  .field {
+    margin: 2.5%;
+  }
+
+  label {
+    display: inline-block;
+    width: 110px;
+  }
+
+  input {
+    color: $text-color;
+  }
+
+  .actions input {
+    background-color: $button-background-color;
+    border: none;
+    padding: 3%;
+    margin: 3%;
+    color: white;
+  }
+}
